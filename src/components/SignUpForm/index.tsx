@@ -1,7 +1,7 @@
-import { Label } from '@radix-ui/react-label';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { useState, type ComponentProps, type FormEvent } from 'react';
-import { Input } from '../ui/input';
-import { Button } from '../ui/button';
 
 export function SignUpForm({ className, ...props }: ComponentProps<'form'>) {
   const [name, setName] = useState('');
@@ -28,7 +28,7 @@ export function SignUpForm({ className, ...props }: ComponentProps<'form'>) {
       <div className="flex flex-col gap-6">
         <div className="flex flex-col items-center text-center">
           <h1 className="text-2xl font-bold">Welcome!</h1>
-          <p className="text-muted-foreground text-balance">Create your Acme Inc account</p>
+          <p className="text-muted-foreground text-balance">Create your account</p>
         </div>
         <div className="grid gap-3">
           <Label htmlFor="text">Name</Label>
