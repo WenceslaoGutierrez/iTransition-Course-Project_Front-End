@@ -4,7 +4,8 @@ import { Label } from '@/components/ui/label';
 import { useState, type ComponentProps, type FormEvent } from 'react';
 
 export function SignUpForm({ className, ...props }: ComponentProps<'form'>) {
-  const [name, setName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -30,9 +31,15 @@ export function SignUpForm({ className, ...props }: ComponentProps<'form'>) {
           <h1 className="text-2xl font-bold">Welcome!</h1>
           <p className="text-muted-foreground text-balance">Create your account</p>
         </div>
-        <div className="grid gap-3">
-          <Label htmlFor="text">Name</Label>
-          <Input id="name" type="text" placeholder="John Doe" required value={name} onChange={(e) => setName(e.target.value)} />
+        <div className="grid grid-cols md:grid-cols-2 gap-3">
+          <div className="grid gap-3">
+            <Label htmlFor="text">First Name</Label>
+            <Input id="name" type="text" placeholder="John" required value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+          </div>
+          <div className="grid gap-3">
+            <Label htmlFor="text">Last Name</Label>
+            <Input id="name" type="text" placeholder="Doe" required value={lastName} onChange={(e) => setLastName(e.target.value)} />
+          </div>
         </div>
         <div className="grid gap-3">
           <Label htmlFor="email">Email</Label>
