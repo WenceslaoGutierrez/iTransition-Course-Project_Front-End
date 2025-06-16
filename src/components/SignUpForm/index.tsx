@@ -12,7 +12,8 @@ export function SignUpForm({ className, ...props }: ComponentProps<'form'>) {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const userData = {
-      name: name,
+      firstName: firstName,
+      lastName: lastName,
       email: email,
       password: password
     };
