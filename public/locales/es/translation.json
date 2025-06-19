@@ -1,0 +1,22 @@
+{
+  "loginForm": {
+    "title": "¡Bienvenido de vuelta!",
+    "subtitle": "Inicia sesión en tu cuenta",
+    "emailLabel": "Correo Electrónico",
+    "passwordLabel": "Contraseña",
+    "loginButton": "Iniciar Sesión",
+    "loggingIn": "Iniciando sesión...",
+    "welcomeBack": "¡Bienvenido de nuevo!",
+    "unexpectedError": "Ocurrió un error inesperado."
+  },
+  "auth": {
+    "register_success": "Usuario registrado correctamente",
+    "login_success": "Inicio de sesión exitoso",
+    "login_failed": "Credenciales inválidas",
+    "logout_success": "Sesión cerrada correctamente",
+    "email_in_use": "El email ya está en uso",
+    "unauthorized": "No autorizado. Por favor, inicia sesión de nuevo.",
+    "unauthorized_no_token": "No autorizado. Se requiere un token de acceso.",
+    "token_not_valid": "El token proporcionado no es válido o ha expirado."
+  }
+}

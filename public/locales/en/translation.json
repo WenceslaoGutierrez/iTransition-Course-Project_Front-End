@@ -1,0 +1,22 @@
+{
+  "loginForm": {
+    "title": "Welcome back!",
+    "subtitle": "Login to your account",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "loginButton": "Login",
+    "loggingIn": "Logging in...",
+    "welcomeBack": "Welcome back!",
+    "unexpectedError": "An unexpected error occurred."
+  },
+  "auth": {
+    "register_success": "User registered successfully",
+    "login_success": "Login successful",
+    "login_failed": "Invalid credentials",
+    "logout_success": "Session closed successfully",
+    "email_in_use": "Email is already in use",
+    "unauthorized": "Unauthorized. Please log in again.",
+    "unauthorized_no_token": "Unauthorized. An access token is required.",
+    "token_not_valid": "The provided token is not valid or has expired."
+  }
+}
