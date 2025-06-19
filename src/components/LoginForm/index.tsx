@@ -2,39 +2,62 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useState, type ComponentProps, type FormEvent } from 'react';
+import { useAuth } from '@/context/AuthContext';
+import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 
 export function LoginForm({ className, ...props }: ComponentProps<'form'>) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const { login } = useAuth();
+  const { t, i18n } = useTranslation();
+
+  console.log('Idioma detectado:', i18n.language);
+  console.log('Traducción de prueba:', t('loginForm.title'));
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    /*try {
-      await login({ email, password });
-      console.log('Login successful from form');
-    } catch (err) {
-      console.error('Login failed in form:', err);
-    }*/
+    toast
+      .promise(login(email, password), {
+        pending: t('loginForm.loggingIn'),
+        success: {
+          render() {
+            //navigate('/dashboard');
+            return t('loginForm.welcomeBack');
+          }
+        },
+        error: {
+          render({ data }: any) {
+            const errorMessage = data.response?.data?.message || t('loginForm.unexpectedError');
+            return errorMessage;
+          }
+        }
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
     <form className="p-6 md:p-8" onSubmit={handleSubmit} {...props}>
       <div className="flex flex-col gap-6">
         <div className="flex flex-col items-center text-center">
-          <h1 className="text-2xl font-bold">Welcome back</h1>
-          <p className="text-muted-foreground text-balance">Login to your account</p>
+          <h1 className="text-2xl font-bold">{t('loginForm.title')}</h1>
+          <p className="text-muted-foreground text-balance">{t('loginForm.subtitle')}</p>
         </div>
         <div className="grid gap-3">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">{t('loginForm.emailLabel')}</Label>
           <Input id="email" type="email" placeholder="m@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div className="grid gap-3">
           <div className="flex items-center">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">{t('loginForm.passwordLabel')}</Label>
           </div>
           <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <Button type="submit" className="w-full">
-          Login
+        <Button type="submit" className="w-full" disabled={isLoading}>
+          {isLoading ? t('loginForm.loggingIn') : t('loginForm.loginButton')}
         </Button>
       </div>
     </form>
