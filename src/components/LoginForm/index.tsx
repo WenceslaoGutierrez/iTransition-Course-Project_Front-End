@@ -5,16 +5,15 @@ import { useState, type ComponentProps, type FormEvent } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 export function LoginForm({ className, ...props }: ComponentProps<'form'>) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { login } = useAuth();
-  const { t, i18n } = useTranslation();
-
-  console.log('Idioma detectado:', i18n.language);
-  console.log('Traducción de prueba:', t('loginForm.title'));
+  const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -29,8 +28,7 @@ export function LoginForm({ className, ...props }: ComponentProps<'form'>) {
         },
         error: {
           render({ data }: any) {
-            const errorMessage = data.response?.data?.message || t('loginForm.unexpectedError');
-            return errorMessage;
+            return data.response?.data?.message || t('errors.unexpected');
           }
         }
       })
@@ -48,13 +46,13 @@ export function LoginForm({ className, ...props }: ComponentProps<'form'>) {
         </div>
         <div className="grid gap-3">
           <Label htmlFor="email">{t('loginForm.emailLabel')}</Label>
-          <Input id="email" type="email" placeholder="m@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
+          <Input id="email" type="email" placeholder="m@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" />
         </div>
         <div className="grid gap-3">
           <div className="flex items-center">
             <Label htmlFor="password">{t('loginForm.passwordLabel')}</Label>
           </div>
-          <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
+          <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" />
         </div>
         <Button type="submit" className="w-full" disabled={isLoading}>
           {isLoading ? t('loginForm.loggingIn') : t('loginForm.loginButton')}
