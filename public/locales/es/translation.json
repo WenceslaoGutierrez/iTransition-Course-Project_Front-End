@@ -4,19 +4,35 @@
     "subtitle": "Inicia sesión en tu cuenta",
     "emailLabel": "Correo Electrónico",
     "passwordLabel": "Contraseña",
-    "loginButton": "Iniciar Sesión",
+    "loginButton": "Iniciar sesión",
     "loggingIn": "Iniciando sesión...",
-    "welcomeBack": "¡Bienvenido de nuevo!",
-    "unexpectedError": "Ocurrió un error inesperado."
+    "welcomeBack": "¡Bienvenido de nuevo!"
   },
   "auth": {
     "register_success": "Usuario registrado correctamente",
     "login_success": "Inicio de sesión exitoso",
     "login_failed": "Credenciales inválidas",
     "logout_success": "Sesión cerrada correctamente",
-    "email_in_use": "El email ya está en uso",
+    "email_in_use": "AAAAAAAJUÑIGA",
     "unauthorized": "No autorizado. Por favor, inicia sesión de nuevo.",
     "unauthorized_no_token": "No autorizado. Se requiere un token de acceso.",
     "token_not_valid": "El token proporcionado no es válido o ha expirado."
+  },
+  "signUpForm": {
+    "title": "¡Bienvenido!",
+    "subtitle": "Crea tu cuenta para comenzar",
+    "firstNameLabel": "Nombre",
+    "lastNameLabel": "Apellido",
+    "emailLabel": "Email",
+    "passwordLabel": "Contraseña",
+    "button": "Crear cuenta",
+    "registering": "Creando cuenta...",
+    "success": "¡Registro exitoso!",
+    "unexpectedError": "An unexpected error occurred."
+  },
+  "errors": {
+    "unexpected": "Ocurrió un error inesperado. Por favor, intenta de nuevo.",
+    "server_error": "Ocurrió un error inesperado en el servidor.",
+    "invalid_user_data": "Los datos de usuario proporcionados son inválidos."
   }
 }

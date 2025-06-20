@@ -6,8 +6,7 @@
     "passwordLabel": "Password",
     "loginButton": "Login",
     "loggingIn": "Logging in...",
-    "welcomeBack": "Welcome back!",
-    "unexpectedError": "An unexpected error occurred."
+    "welcomeBack": "Welcome back!"
   },
   "auth": {
     "register_success": "User registered successfully",
@@ -18,5 +17,21 @@
     "unauthorized": "Unauthorized. Please log in again.",
     "unauthorized_no_token": "Unauthorized. An access token is required.",
     "token_not_valid": "The provided token is not valid or has expired."
+  },
+  "signUpForm": {
+    "title": "Welcome!",
+    "subtitle": "Create your account to get started",
+    "firstNameLabel": "First Name",
+    "lastNameLabel": "Last Name",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "button": "Create Account",
+    "registering": "Creating account...",
+    "success": "Registration successful!"
+  },
+  "errors": {
+    "unexpected": "An unexpected error occurred.",
+    "server_error": "An unexpected server error occurred.",
+    "invalid_user_data": "The provided user data is invalid."
   }
 }
