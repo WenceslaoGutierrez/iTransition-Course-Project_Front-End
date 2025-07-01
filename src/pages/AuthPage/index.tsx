@@ -2,6 +2,7 @@ import { LoginForm } from '@/components/LoginForm';
 import { SignUpForm } from '@/components/SignUpForm';
 import { Card, CardContent } from '@/components/ui/card';
 import { useState } from 'react';
+import { useAuth } from '@/context/AuthContext';
 
 export default function AuthPage() {
   const [isLoginView, setIsLoginView] = useState(true);

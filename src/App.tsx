@@ -1,15 +1,27 @@
+import { ToastContainer } from 'react-toastify';
 import { LoginForm } from './components/LoginForm';
 import { SignUpForm } from './components/SignUpForm';
 import AuthPage from './pages/AuthPage';
+import Layout from './Layout';
 
 function App() {
   return (
     <>
-      <div className="bg-muted flex min-h-svh flex-col items-center justify-center">
-        <div className="w-full max-w-sm md:max-w-xl">
-          <AuthPage />
-        </div>
-      </div>
+      <Layout>
+        <AuthPage />
+      </Layout>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }
