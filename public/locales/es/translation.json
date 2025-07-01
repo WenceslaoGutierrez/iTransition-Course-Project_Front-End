@@ -34,5 +34,8 @@
     "unexpected": "Ocurrió un error inesperado. Por favor, intenta de nuevo.",
     "server_error": "Ocurrió un error inesperado en el servidor.",
     "invalid_user_data": "Los datos de usuario proporcionados son inválidos."
+  },
+  "search": {
+    "placeholder": "Buscar ..."
   }
 }

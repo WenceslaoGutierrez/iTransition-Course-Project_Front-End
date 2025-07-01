@@ -1,14 +1,13 @@
 import { ToastContainer } from 'react-toastify';
-import { LoginForm } from './components/LoginForm';
-import { SignUpForm } from './components/SignUpForm';
 import AuthPage from './pages/AuthPage';
 import Layout from './Layout';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
     <>
       <Layout>
-        <AuthPage />
+        <Dashboard />
       </Layout>
       <ToastContainer
         position="top-right"
