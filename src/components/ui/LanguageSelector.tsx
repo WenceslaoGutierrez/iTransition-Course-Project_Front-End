@@ -4,7 +4,8 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { useTranslation } from 'react-i18next';
 
 export function LanguageSelector() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (lang: string) => i18n.changeLanguage(lang);
 
   return (
     <>
@@ -15,8 +16,8 @@ export function LanguageSelector() {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem>{t('languageSelector.spanish')}</DropdownMenuItem>
-          <DropdownMenuItem>{t('languageSelector.english')}</DropdownMenuItem>
+          <DropdownMenuItem onClick={() => changeLanguage('es')}>{t('languageSelector.spanish')}</DropdownMenuItem>
+          <DropdownMenuItem onClick={() => changeLanguage('en')}>{t('languageSelector.english')}</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </>
