@@ -50,5 +50,11 @@
   "languageSelector": {
     "spanish": "Spanish",
     "english": "English"
+  },
+  "themeToggle": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "buttonLabel": "Toggle theme"
   }
 }
