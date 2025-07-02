@@ -37,5 +37,19 @@
   },
   "search": {
     "placeholder": "Buscar ..."
+  },
+  "authPage": {
+    "bottomMessage": "¿No tienes una cuenta?",
+    "bottomMessageALink": "Crear cuenta",
+    "bottomMessageAlt": "¿Ya tienes una cuenta?",
+    "bottomMessageALinkAlt": "Inicia sesión",
+    "TermsMessage": "Al hacer click en continuar, aceptas nuestros",
+    "TermsOfService": "Terminos de Servicio",
+    "TermsMessageTwo": "y",
+    "PrivacyPolicy": "Políticas de Privacidad"
+  },
+  "languageSelector": {
+    "spanish": "Español",
+    "english": "Inglés"
   }
 }
