@@ -2,13 +2,14 @@ import { LoginForm } from '@/components/LoginForm';
 import { SignUpForm } from '@/components/SignUpForm';
 import { Card, CardContent } from '@/components/ui/card';
 import { useState } from 'react';
-import { useAuth } from '@/context/AuthContext';
+import { useTranslation } from 'react-i18next';
 
 export default function AuthPage() {
   const [isLoginView, setIsLoginView] = useState(true);
   const toggleView = () => {
     setIsLoginView((prev) => !prev);
   };
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col gap-6">
       <Card className="overflow-hidden p-0">
@@ -17,16 +18,16 @@ export default function AuthPage() {
             <div className="w-full max-w-md">{isLoginView ? <LoginForm /> : <SignUpForm />}</div>
             {isLoginView ? (
               <div className="text-center text-sm">
-                Don&apos;t have an account?{' '}
+                {t('authPage.bottomMessage')}{' '}
                 <a href="#" className="underline underline-offset-4" onClick={toggleView}>
-                  Sign up
+                  {t('authPage.bottomMessageALink')}
                 </a>
               </div>
             ) : (
               <div className="text-center text-sm">
-                Already have an account?{' '}
+                {t('authPage.bottomMessageAlt')}{' '}
                 <a href="#" className="underline underline-offset-4" onClick={toggleView}>
-                  Sign in
+                  {t('authPage.bottomMessageALinkAlt')}
                 </a>
               </div>
             )}
@@ -34,7 +35,7 @@ export default function AuthPage() {
         </CardContent>
       </Card>
       <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+        {t('authPage.TermsMessage')} <a href="#">{t('authPage.TermsOfService')}</a> {t('authPage.TermsMessageTwo')} <a href="#">{t('authPage.PrivacyPolicy')}</a>.
       </div>
     </div>
   );
