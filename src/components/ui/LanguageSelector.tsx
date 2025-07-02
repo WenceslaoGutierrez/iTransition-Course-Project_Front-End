@@ -1,6 +1,6 @@
 import { Languages } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { useTranslation } from 'react-i18next';
 
 export function LanguageSelector() {
@@ -8,25 +8,17 @@ export function LanguageSelector() {
 
   return (
     <>
-      <Popover>
-        <PopoverTrigger asChild>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
           <Button variant="outline">
             <Languages />
           </Button>
-        </PopoverTrigger>
-        <PopoverContent className="w-40">
-          <div className="grid gap-4">
-            <div className="grid gap-2 items-center">
-              <div className="grid items-center gap-4">
-                <Button>{t('languageSelector.spanish')}</Button>
-              </div>
-              <div className="grid items-center gap-4">
-                <Button>{t('languageSelector.english')}</Button>
-              </div>
-            </div>
-          </div>
-        </PopoverContent>
-      </Popover>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuItem>{t('languageSelector.spanish')}</DropdownMenuItem>
+          <DropdownMenuItem>{t('languageSelector.english')}</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </>
   );
 }
