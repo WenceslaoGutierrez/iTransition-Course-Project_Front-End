@@ -2,12 +2,19 @@ import { ToastContainer } from 'react-toastify';
 import AuthPage from './pages/AuthPage';
 import Layout from './Layout';
 import Dashboard from './pages/Dashboard';
+import { LanguageSelector } from './components/ui/LanguageSelector';
+import { ThemeToggle } from './components/ui/ThemeToggle';
+import { useTheme } from './components/ThemeProvider';
 
 function App() {
+  const { theme } = useTheme();
+
   return (
     <>
       <Layout>
-        <Dashboard />
+        <AuthPage />
+        <LanguageSelector />
+        <ThemeToggle />
       </Layout>
       <ToastContainer
         position="top-right"
@@ -19,7 +26,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme={theme}
       />
     </>
   );
