@@ -21,9 +21,9 @@ export function LoginForm({ className, ...props }: ComponentProps<'form'>) {
       .promise(login(email, password), {
         pending: t('loginForm.loggingIn'),
         success: {
-          render() {
+          render({ data }: any) {
             //navigate('/dashboard');
-            return t('loginForm.welcomeBack');
+            return data?.message || t('loginForm.welcomeBack');
           }
         },
         error: {
@@ -34,7 +34,8 @@ export function LoginForm({ className, ...props }: ComponentProps<'form'>) {
       })
       .finally(() => {
         setIsLoading(false);
-      });
+      })
+      .catch(() => {});
   };
 
   return (

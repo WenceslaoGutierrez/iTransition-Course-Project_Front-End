@@ -48,7 +48,8 @@ export function SignUpForm({ className, ...props }: ComponentProps<'form'>) {
       })
       .finally(() => {
         setIsLoading(false);
-      });
+      })
+      .catch(() => {});
   };
 
   return (
