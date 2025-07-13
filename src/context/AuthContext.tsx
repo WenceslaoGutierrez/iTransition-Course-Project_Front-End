@@ -14,7 +14,7 @@ interface AuthContextType {
   user: User | null;
   isAuthenticated: boolean;
   isLoading: boolean;
-  login: (email: string, password: string) => Promise<void>;
+  login: (email: string, password: string) => Promise<any>;
   register: (firstName: string, lastName: string, email: string, password: string) => Promise<any>;
   logout: () => void;
 }
@@ -37,12 +37,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setIsAuthenticated(false);
   };
 
-  const handleAuthError = (error: any) => {
-    console.error(error);
-    clearAuthenticatedState();
-    throw error;
-  };
-
   const tryTokenValidation = async () => {
     try {
       const response = await userService.getMe();
@@ -51,6 +45,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       clearAuthenticatedState();
     }
   };
+
   const checkSession = useCallback(async () => {
     setIsLoading(true);
     const token = authService.getToken();
@@ -63,20 +58,18 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, [checkSession]);
 
   const login = async (email: string, password: string) => {
-    try {
-      const data = await authService.login(email, password);
-      setAuthenticatedState(data.user);
-    } catch (error) {
-      handleAuthError(error);
-    }
+    const data = await authService.login(email, password);
+    setAuthenticatedState(data.user);
   };
 
   const register = async (firstName: string, lastName: string, email: string, password: string) => {
     return authService.register(firstName, lastName, email, password);
   };
+
   const logout = () => {
     clearAuthenticatedState();
   };
+
   const value = { user, isAuthenticated, isLoading, login, register, logout };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
