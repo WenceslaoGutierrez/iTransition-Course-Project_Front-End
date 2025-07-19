@@ -6,6 +6,7 @@ import App from './App.tsx';
 import { AuthProvider } from './context/AuthContext.tsx';
 import './i18n';
 import { ThemeProvider } from './components/ThemeProvider/index.tsx';
+import './services/axiosConfig.ts';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
